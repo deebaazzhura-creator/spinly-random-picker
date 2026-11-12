@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101426" />
+  <meta name="description" content="Aplikasi Spin Wheel - putar roda untuk memilih secara acak." />
+  <title>Spinly — Random Picker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Spinly beranda"><span class="brand-mark">✳</span><span>spinly<span class="brand-dot">.</span></span></a>
+      <div class="top-actions"><span class="status-dot"></span><span>Random picker</span></div>
+    </header>
+
+    <section class="intro">
+      <div class="eyebrow"><span>✦</span> MAKE EVERY CHOICE FUN</div>
+      <h1>Let the wheel<br><span>decide.</span></h1>
+      <p>Masukkan pilihanmu, putar rodanya, dan biarkan keberuntungan menentukan hasilnya.</p>
+    </section>
+
+    <section class="workspace">
+      <section class="wheel-panel panel">
+        <div class="panel-heading"><div><span class="step">01</span><h2>Putar roda</h2></div><span class="live-label"><i></i> READY TO SPIN</span></div>
+        <div class="wheel-stage">
+          <div class="pointer" aria-hidden="true"></div>
+          <div class="wheel-frame"><canvas id="wheel" width="700" height="700" aria-label="Roda pilihan"></canvas></div>
+          <div class="wheel-center"><span>SPIN</span><small>THE WHEEL</small></div>
+        </div>
+        <div class="spin-controls">
+          <button class="spin-button" id="spinBtn"><span>✦</span> PUTAR SEKARANG <span class="button-arrow">↗</span></button>
+          <div class="spin-hint">atau tekan <kbd>SPASI</kbd></div>
+        </div>
+        <div class="result-box" id="resultBox" aria-live="polite">
+          <div class="result-icon">✧</div><div><small>HASIL PILIHAN</small><strong id="resultText">Hasil akan muncul di sini</strong></div>
+          <button id="copyResult" class="icon-button" title="Salin hasil" aria-label="Salin hasil">⧉</button>
+        </div>
+      </section>
+
+      <aside class="side-column">
+        <section class="editor-panel panel">
+          <div class="panel-heading"><div><span class="step">02</span><h2>Daftar pilihan</h2></div><span class="count" id="itemCount">6 ITEM</span></div>
+          <p class="section-description">Tambahkan nama atau pilihan yang ingin diundi.</p>
+          <div class="entry-row"><input id="newItem" type="text" maxlength="32" placeholder="Tulis pilihan baru..." autocomplete="off"><button id="addBtn" aria-label="Tambah pilihan">＋</button></div>
+          <div class="list-toolbar"><span id="listLabel">PILIHAN KAMU</span><button id="shuffleBtn" class="text-button">Acak urutan ↗</button></div>
+          <ul id="itemList" class="item-list"></ul>
+          <div class="editor-footer"><span><span class="tiny-lock">✦</span> Minimal 2 pilihan</span><button id="resetBtn" class="text-button danger">Reset default</button></div>
+        </section>
+
+        <section class="history-panel panel">
+          <div class="panel-heading"><div><span class="step">03</span><h2>Riwayat hasil</h2></div><button id="clearHistory" class="text-button">Hapus</button></div>
+          <div id="historyList" class="history-list"><div class="empty-history">Belum ada hasil. Yuk, putar roda!</div></div>
+        </section>
+      </aside>
+    </section>
+    <footer><span>© 2026 SPINLY</span><span>Dibuat untuk keputusan yang lebih seru <b>✦</b></span></footer>
+  </main>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
